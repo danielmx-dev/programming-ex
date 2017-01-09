@@ -1,0 +1,19 @@
+{
+  "name": "programming-ex",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -w",
+    "start": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylanrevisited/programming-ex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dylanrevisited/programming-ex/issues"
+  },
+  "homepage": "https://github.com/dylanrevisited/programming-ex#readme"
+}
