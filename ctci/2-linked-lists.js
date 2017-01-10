@@ -1,30 +1,5 @@
 const assert = require('assert')
-
-class LinkedListNode {
-  constructor(data) {
-    this.data = data
-    this.next = null
-  }
-  appendToTail(d) {
-    const tail = new LinkedListNode(d)
-    let iterator = this
-    while (iterator.next !== null) {
-      iterator = iterator.next
-    }
-    iterator.next = tail
-  }
-
-  inspect() {
-    return `N(${ this.data })${ this.next ? `->${this.next.inspect()}` : '' }`
-  }
-
-  static from(...elements) {
-    const head = new LinkedListNode(elements[0])
-    elements.slice(1).forEach(element =>
-      head.appendToTail(element))
-    return head
-  }
-}
+const {LinkedListNode} = require('./classes')
 
 describe('2.1 remove duplicates', () => {
   // Write code to remove duplicates from an unsorted linked list. FOLLOW UP
