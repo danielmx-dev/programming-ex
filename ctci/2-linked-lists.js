@@ -148,9 +148,7 @@ describe('2.4 list sum', () => {
     while (current1 !== null || 
            current2 !== null || 
            overflow !== 0) {
-      const sum = (current1 ? current1.data : 0) + 
-        (current2 ? current2.data : 0) + 
-        overflow
+      const sum = data(current1) + data(current2) + overflow
       const cutdownSum = sum > 9 ? sum - 10 : sum 
       overflow = sum > 9 ? sum % 9 : 0
       if (sumHead) {
@@ -158,11 +156,13 @@ describe('2.4 list sum', () => {
       } else {
         sumHead = new LinkedListNode(cutdownSum)
       }
-      current1 = current1 ? current1.next : null
-      current2 = current2 ? current2.next : null
+      current1 = next(current1)
+      current2 = next(current2)
     }
     return sumHead
   }
+  const data = node => node ? node.data : 0
+  const next = node => node ? node.next : null
 
   it('sums the given lists', () =>
     assert.deepEqual(
