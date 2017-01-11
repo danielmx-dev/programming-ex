@@ -53,21 +53,56 @@ class Stack {
 
   inspect() {
     if (this.top === null) {
-      return 'EMPTY_STACK';
+      return 'EMPTY_STACK'
     }
-    let current = this.top;
+    let current = this.top
     let representation = ''
     while (current) {
-      representation += `
-        ${current.data}
-        ========
-      `
+      representation += `${current.data} // `
       current = current.next
     }    
-    return representation + `
-      STACK_BOTTOM
-    `
+    return `${representation}BOTTOM`
   }
 }
 
-module.exports = {Node, LinkedListNode, Stack}
+class Queue {
+  constructor () {
+    this.first = null
+    this.last = null
+  }
+
+  enqueue(element) {
+    var node = new Node(element)
+    if (this.first === null) {
+      this.first = node
+      this.last = node
+    } else {
+      this.last.next = node
+      this.last = node
+    }
+  }
+
+  dequeue() {
+    var element = this.first
+    this.first = this.first.next
+    if (this.first === null) {
+      this.last = null
+    }
+    return element
+  }
+
+  inspect () {
+    if (this.first === null) {
+      return 'EMPTY_QUEUE'
+    }
+    let current = this.first
+    let representation = ''
+    while (current) {
+      representation += `${current.data} => `
+      current = current.next
+    }    
+    return `${representation}END`
+  }
+}
+
+module.exports = {Node, LinkedListNode, Stack, Queue}
