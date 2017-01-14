@@ -4,9 +4,11 @@ class Node {
     this.next = null
   }
 
-  inspect() {
-    // TODO this will break with circular references
-    return `N(${ this.data })${ this.next ? `->${this.next.inspect()}` : '' }`
+  inspect(_, __, printUntil = 5) {
+    if (printUntil === 0) {
+      return '...'
+    }
+    return `N(${ this.data })${ this.next ? `->${this.next.inspect(_, __, --printUntil)}` : '' }`
   }
 }
 

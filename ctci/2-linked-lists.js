@@ -159,3 +159,45 @@ describe('2.4 list sum', () => {
       sumLists(LinkedListNode.from(3, 1), LinkedListNode.from(5, 9)),
       LinkedListNode.from(8, 0, 1)))
 })
+
+describe('2.5 circular list', () => {
+  // Given a circular linked list, implement an algorithm which returns 
+  // node at the beginning of the loop.
+  // DEFINITION
+  // Circular linked list: A (corrupt) linked list in which a node’s 
+  // next pointer points to an earlier node, so as to make a loop in the linked list.
+  // EXAMPLE
+  // input: A -> B -> C -> D -> E -> C [the same C as earlier]
+  // output: C
+
+  const getLoopHead = list => {
+    const nodes = []
+    let current = list
+    while (current !== null && !nodes.find(node => node === current)) {
+      nodes.push(current)
+      current = current.next
+    }
+    return current
+  }
+
+  // helper, not really tested
+  const getAt = (head, n) => {
+    let node = head
+    while (n--) {
+      node = node.next
+    }
+    return node
+  }
+
+  it('gets the circular reference', () => {
+    const loopedList = LinkedListNode.from('A', 'B', 'C', 'D', 'E')
+    const cNode = getAt(loopedList, 2)
+    const tail = getAt(loopedList, 4)
+    
+    tail.next = cNode
+
+    assert.strictEqual(
+      getLoopHead(loopedList),
+      cNode)
+  })
+})
