@@ -3,7 +3,7 @@ const {Node, Stack, Queue} = require('./classes')
 
 
 
-describe('3.1 array 3 stacks', () => {
+describe('3 array 3 stacks', () => {
   // Describe how you could use a single array to implement three stacks.
 
   const tripleStack = () => {
@@ -15,7 +15,7 @@ describe('3.1 array 3 stacks', () => {
 
     const pop = stackIndex => {
       const elementIndex = array.findIndex(([_, i]) => i === stackIndex)
-      
+
       if (elementIndex === -1) {
         return null
       }
@@ -45,7 +45,7 @@ describe('3.1 array 3 stacks', () => {
     assert.equal(stacks.pop(1), '1::first')
 
     stacks.push('1::third', 1)
-    stacks.push('2::third', 2)    
+    stacks.push('2::third', 2)
     stacks.push('0::third', 0)
 
     assert.equal(stacks.pop(0), '0::third')
@@ -73,7 +73,7 @@ describe('3.1 array 3 stacks', () => {
 
     const pop = stackIndex => {
       const elementIndex = array.findIndex(([_, i]) => i === stackIndex)
-      
+
       if (elementIndex === -1) {
         return null
       }
@@ -103,7 +103,7 @@ describe('3.1 array 3 stacks', () => {
     assert.equal(stacks.pop(1), '1::first')
 
     stacks.push('1::third', 1)
-    stacks.push('2::third', 2)    
+    stacks.push('2::third', 2)
     stacks.push('0::third', 0)
 
     assert.equal(stacks.pop(0), '0::third')
@@ -120,8 +120,8 @@ describe('3.1 array 3 stacks', () => {
 })
 
 describe('3.2 stack design', () => {
-  // How would you design a stack which, in addition to push and pop, 
-  // also has a function min which returns the minimum element? 
+  // How would you design a stack which, in addition to push and pop,
+  // also has a function min which returns the minimum element?
   // Push, pop and min should all operate in O(1) time.
 
   const minStack = () => {
@@ -143,7 +143,7 @@ describe('3.2 stack design', () => {
         if (lastElement !== element) {
           minElement = lastPossibleMinElement
         }
-        
+
       } else {
         minElement = Math.min(minElement, possibleMinElement)
       }
