@@ -4,7 +4,7 @@ const {Node, Stack, Queue} = require('./classes')
 
 
 describe('3 array 3 stacks', () => {
-  // Describe how you could use a single array to implement three stacks.
+  // Describe how you could use ngle array to implement three stacks.
 
   const tripleStack = () => {
     const array = []
