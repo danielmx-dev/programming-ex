@@ -9,7 +9,7 @@ describe('3 array 3 stacks', () => {
   const tripleStack = () => {
     const array = []
 
-    const push = (element, stackIndex) => {
+    const push = (element, stackIn) => {
       array.unshift([element, stackIndex])
     }
 
